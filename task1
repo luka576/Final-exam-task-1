@@ -1,0 +1,43 @@
+package oop.finalexam.t1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * This program combines values from two lists according to a specific rule:
+ * <p>
+ * 1. list1 contains integers and list2 contains strings.
+ * 2. For each index i in list1, the value list1[i] is used as an index into list2.
+ *    Then list2.get(list1[i]) + list1[i] is stored in list3.
+ * 3. If list1[i] is out of bounds for list2, an error message is printed.
+ * 4. Finally, from list3, only the entry starting with "ddb" is kept.
+ * <p>
+ * This implementation works for any general input lists.
+ */
+public class CombineAndFilter {
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(3, 1, 9, 5, 4, 2, 7, 10, 6, 8);
+        List<String> list2 = Arrays.asList("fys", "ibx", "ene", "fqu", "ddb", "pcs", "ise", "aum", "onp", "phb", "iud", "avm");
+
+        List<String> list3 = new ArrayList<>();
+
+        for (int index : list1) {
+            if (index >= list2.size()) {
+                System.out.println("Error: index " + index + " is out of bounds for list2 (size = " + list2.size() + ")");
+                continue;
+            }
+            String combined = list2.get(index) + index;
+            list3.add(combined);
+        }
+        System.out.println("List 3 (combined): " + list3);
+
+        List<String> finalList = new ArrayList<>();
+        for (String item : list3) {
+            if (item.startsWith("ddb")) {
+                finalList.add(item);
+            }
+        }
+        System.out.println("Final list (filtered): " + finalList);
+    }
+}
