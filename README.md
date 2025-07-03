@@ -28,3 +28,4 @@ The program is dynamic and will work correctly with any list sizes and values.
 If an element in list1 is greater than or equal to the size of list2, it cannot be used as an index,
 
 it skips them, the values that are too big are numbers above 3, and 3 itself. 
+![image](https://github.com/user-attachments/assets/89144a53-51ed-483c-8e0d-03a25740fb42)
